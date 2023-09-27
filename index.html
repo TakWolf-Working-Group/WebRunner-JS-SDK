@@ -8,20 +8,21 @@
 </head>
 <body>
 <div id="app" class="page">
-    <span class="label-key">运行时平台</span>
-    <span class="label-value">{{runnerType}}</span>
+    <span class="label-key">运行时信息</span>
+    <span class="label-value">{{runtimeInfo}}</span>
     <span class="label-key">UserAgent</span>
     <span class="label-value">{{userAgent}}</span>
     <button class="button" @click="onBtnShowAlertDialog">Alert 对话框</button>
     <button class="button" @click="onBtnShowConfirmDialog">Confirm 对话框</button>
     <button class="button" @click="onBtnShowPromptDialog">Prompt 对话框</button>
     <span class="label-key">普通图片</span>
-    <img src="download/zhiyin-x2.png" alt="只因哥-PNG">
+    <img src="download/zhiyin-x2.png" alt="只因哥-PNG" style="width: 80px; height: 80px;">
     <span class="label-key">Base64 图片</span>
-    <img :src="demoImageBase64" alt="只因哥-Base64">
+    <img :src="demoImageBase64" alt="只因哥-Base64" style="width: 80px; height: 80px;">
     <a class="button" download="a.png" href="download/zhiyin-x2.png">下载普通图片</a>
     <a class="button" download="b.png" :href="demoImageBase64">下载 Base64 图片</a>
     <a class="button" download="c.zip" href="download/zhiyin.zip">下载 ZIP 文件</a>
+    <button class="button" @click="onBtnShowToast">原生 Toast</button>
 </div>
 <script src="js/vue.global.js"></script>
 <script src="js/web-runner-sdk.js"></script>
