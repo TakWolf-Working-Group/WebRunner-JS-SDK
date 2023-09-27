@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WebRunner - Test</title>
     <link rel="stylesheet" href="css/app.css">
-    <script src="js/web-runner-sdk.js"></script>
 </head>
 <body>
-<div id="app">
-    {{userAgent}}
-    <br>
-    <button @click="onBtnAlert">系统对话框</button>
+<div id="app" class="page">
+    <span class="label-key">运行时平台</span>
+    <span class="label-value">{{runnerType}}</span>
+    <span class="label-key">UserAgent</span>
+    <span class="label-value">{{userAgent}}</span>
+    <button class="button" @click="onBtnShowAlertDialog">Alert 对话框</button>
+    <button class="button" @click="onBtnShowConfirmDialog">Confirm 对话框</button>
+    <button class="button" @click="onBtnShowPromptDialog">Prompt 对话框</button>
+    <img :src="demoImageBase64" alt="只因哥">
+    <a class="button" download="a.png" :href="demoImageBase64">下载 Base64 图片</a>
+    <a class="button" download="b.zip" href="download/zhiyin.zip">下载 ZIP 文件</a>
 </div>
 <script src="js/vue.global.js"></script>
+<script src="js/web-runner-sdk.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
