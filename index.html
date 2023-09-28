@@ -12,17 +12,27 @@
     <span class="label-value">{{runtimeInfo}}</span>
     <span class="label-key">UserAgent</span>
     <span class="label-value">{{userAgent}}</span>
-    <button class="button" @click="onBtnShowAlertDialog">Alert 对话框</button>
-    <button class="button" @click="onBtnShowConfirmDialog">Confirm 对话框</button>
-    <button class="button" @click="onBtnShowPromptDialog">Prompt 对话框</button>
-    <span class="label-key">普通图片</span>
-    <img src="download/zhiyin-x2.png" alt="只因哥-PNG" style="width: 80px; height: 80px;">
-    <span class="label-key">Base64 图片</span>
-    <img :src="demoImageBase64" alt="只因哥-Base64" style="width: 80px; height: 80px;">
-    <a class="button" download="a.png" href="download/zhiyin-x2.png">下载普通图片</a>
+    <div class="deep-line"></div>
+    <span class="label-key">浏览器对话框</span>
+    <button class="button" @click="onBtnShowAlertClick">Alert 对话框</button>
+    <button class="button" @click="onBtnShowConfirmClick">Confirm 对话框</button>
+    <button class="button" @click="onBtnShowPromptClick">Prompt 对话框</button>
+    <div class="deep-line"></div>
+    <span class="label-key">下载测试</span>
+    <a class="button" download="a.png" href="img/zhiyin.png">下载普通图片</a>
     <a class="button" download="b.png" :href="demoImageBase64">下载 Base64 图片</a>
-    <a class="button" download="c.zip" href="download/zhiyin.zip">下载 ZIP 文件</a>
-    <button class="button" @click="onBtnShowToast">原生 Toast</button>
+    <a class="button" download="c.zip" href="files/zhiyin.zip">下载 ZIP 文件</a>
+    <div class="deep-line"></div>
+    <span class="label-key">原生功能扩展</span>
+    <button class="button" @click="onBtnShowToastClick">原生 Toast</button>
+    <button class="button" @click="onBtnOpenShareClick">原生分享</button>
+    <div class="deep-line"></div>
+    <span class="label-key">权限管理</span>
+    <button class="button" @click="onBtnCheckPermissionClick('READ_MEDIA_IMAGES')">权限检查：读取图片媒体</button>
+    <button class="button" @click="onBtnCheckPermissionClick('READ_MEDIA_AUDIO')">权限检查：读取音频媒体</button>
+    <button class="button" @click="onBtnCheckPermissionClick('READ_MEDIA_VIDEO')">权限检查：读取视频媒体</button>
+    <button class="button" @click="onBtnCheckPermissionClick('CAMERA')">权限检查：照相机</button>
+    <button class="button" @click="onBtnCheckPermissionClick('RECORD_AUDIO')">权限检查：录音设备</button>
 </div>
 <script src="js/vue.global.js"></script>
 <script src="js/web-runner-sdk.js"></script>

@@ -2,6 +2,11 @@
  * WebRunner - JS SDK
  */
 (function () {
+
+
+
+
+
     let jsBridgeApi = {
         runtimeInfo: {
             platform: 'web',
@@ -12,9 +17,14 @@
             },
         },
         showToast(message) {
-            console.warn('Not supported');
+            console.debug('Toast: ', message);
+        },
+        openShare(title, text) {
+            console.debug('title: ', title, '\ntext: ', text)
         },
     };
+
+
 
     function createApiForAndroid(jsBridgeApi, androidJsBridgeApi) {
         window.androidJsBridgeCallback = {
@@ -37,9 +47,23 @@
         return jsBridgeApi;
     }
 
-    if (!!window.androidJsBridgeApi) {
-        window.jsBridgeApi = createApiForAndroid(jsBridgeApi, window.androidJsBridgeApi);
+
+
+
+
+
+    if (!!window.androidJsBridgeInternalApi) {
+        window.androidJsBridgeInternalCallback = (callbackId, ...args) => {
+
+        }
+
+
+
+
+
+
     } else {
-        window.jsBridgeApi = jsBridgeApi;
+
+
     }
-})()
+})();
