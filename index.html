@@ -8,8 +8,6 @@
 </head>
 <body>
 <div id="app" class="page">
-    <span class="label-key">运行时信息</span>
-    <span class="label-value">{{runtimeInfo}}</span>
     <span class="label-key">UserAgent</span>
     <span class="label-value">{{userAgent}}</span>
     <div class="deep-line"></div>
@@ -27,15 +25,24 @@
     <button class="button" @click="onBtnShowToastClick">原生 Toast</button>
     <button class="button" @click="onBtnOpenShareClick">原生分享</button>
     <div class="deep-line"></div>
-    <span class="label-key">权限管理</span>
-    <button class="button" @click="onBtnCheckPermissionClick('READ_MEDIA_IMAGES')">权限检查：读取图片媒体</button>
-    <button class="button" @click="onBtnCheckPermissionClick('READ_MEDIA_AUDIO')">权限检查：读取音频媒体</button>
-    <button class="button" @click="onBtnCheckPermissionClick('READ_MEDIA_VIDEO')">权限检查：读取视频媒体</button>
-    <button class="button" @click="onBtnCheckPermissionClick('CAMERA')">权限检查：照相机</button>
-    <button class="button" @click="onBtnCheckPermissionClick('RECORD_AUDIO')">权限检查：录音设备</button>
+    <span class="label-key">权限查询</span>
+    <button class="button" @click="onBtnCheckPermissionClick('read-media-images')">权限查询：读取图片媒体</button>
+    <button class="button" @click="onBtnCheckPermissionClick('read-media-audio')">权限查询：读取音频媒体</button>
+    <button class="button" @click="onBtnCheckPermissionClick('read-media-video')">权限查询：读取视频媒体</button>
+    <button class="button" @click="onBtnCheckPermissionClick('camera')">权限查询：照相机</button>
+    <button class="button" @click="onBtnCheckPermissionClick('recorder')">权限查询：录音设备</button>
+    <button class="button" @click="onBtnCheckPermissionClick('nuclear-weapon')">权限查询：核武器开关</button>
+    <span class="label-key">权限申请</span>
+    <button class="button" @click="onBtnRequestPermissionClick('read-media-images')">权限申请：读取图片媒体</button>
+    <button class="button" @click="onBtnRequestPermissionClick('read-media-audio')">权限申请：读取音频媒体</button>
+    <button class="button" @click="onBtnRequestPermissionClick('read-media-video')">权限申请：读取视频媒体</button>
+    <button class="button" @click="onBtnRequestPermissionClick('camera')">权限申请：照相机</button>
+    <button class="button" @click="onBtnRequestPermissionClick('recorder')">权限申请：录音设备</button>
+    <button class="button" @click="onBtnRequestPermissionClick('nuclear-weapon')">权限申请：核武器开关</button>
 </div>
+<script src="js/jsbridge-android.js"></script>
+<script src="js/web-runner.js"></script>
 <script src="js/vue.global.js"></script>
-<script src="js/web-runner-sdk.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
