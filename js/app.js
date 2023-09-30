@@ -19,7 +19,7 @@ createApp({
         },
         onBtnShowToastClick() {
             let message = '这是 Toast 消息'
-            if (webRunner) {
+            if (window.webRunner) {
                 webRunner.showToast(message)
             } else {
                 console.log('showToast: ', message)
@@ -30,19 +30,26 @@ createApp({
                 title: '原神三周年',
                 text: '登录就送 999 原石\nhttps://ys.mihoyo.com',
             }
-            if (webRunner) {
+            if (window.webRunner) {
                 webRunner.openShare(shareData)
             } else {
                 console.log('openShare: ', shareData)
             }
         },
+        onBtnOpenAppDetailsSettingsClick() {
+            if (window.webRunner) {
+                webRunner.openAppDetailsSettings()
+            } else {
+                console.log('openAppDetailsSettings')
+            }
+        },
         onBtnCheckPermissionClick(permission) {
-            if (webRunner) {
+            if (window.webRunner) {
                 webRunner.checkPermission(permission)
-                    .then((isGranted) => {
+                    .then(isGranted => {
                         webRunner.showToast(permission + ': ' + isGranted)
                     })
-                    .catch((error) => {
+                    .catch(error => {
                         webRunner.showToast(error)
                     })
             } else {
@@ -50,12 +57,12 @@ createApp({
             }
         },
         onBtnRequestPermissionClick(permission) {
-            if (webRunner) {
+            if (window.webRunner) {
                 webRunner.requestPermission(permission)
-                    .then((isGranted) => {
+                    .then(isGranted => {
                         webRunner.showToast(permission + ': ' + isGranted)
                     })
-                    .catch((error) => {
+                    .catch(error => {
                         webRunner.showToast(error)
                     })
             } else {

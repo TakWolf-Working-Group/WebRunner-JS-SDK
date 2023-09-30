@@ -15,11 +15,14 @@
         openShare(data) {
             jsBridge.callService('openShare', JSON.stringify(data)).then()
         },
+        openAppDetailsSettings() {
+            jsBridge.callService('openAppDetailsSettings').then()
+        },
         checkPermission(permission) {
-            return jsBridge.callService('checkPermission', permission).then((isGranted) => isGranted === 'true')
+            return jsBridge.callService('checkPermission', permission).then(isGranted => isGranted === 'true')
         },
         requestPermission(permission) {
-            return jsBridge.callService('requestPermission', permission).then((isGranted) => isGranted === 'true')
+            return jsBridge.callService('requestPermission', permission).then(isGranted => isGranted === 'true')
         },
     };
 })();

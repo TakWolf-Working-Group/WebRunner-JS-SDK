@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>录音测试</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="page">
+    <button id="record" class="button">录音</button>
+    <audio id="audio" controls class="audio-player"></audio>
+</div>
+<script>
+    // https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API
+    // https://github.com/wayou/audio-recorder
+
+    if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(stream => {
+                let btnRecord = document.getElementById('record');
+                let audio = document.getElementById('audio');
+
+                let mediaRecorder = new MediaRecorder(stream);
+                let chunks = [];
+                mediaRecorder.ondataavailable = event => {
+                    chunks.push(event.data);
+                };
+                mediaRecorder.onstop = event => {
+                    let blob = new Blob(chunks, { type: 'audio/ogg; codecs=opus' });
+                    chunks = [];
+                    audio.src = window.URL.createObjectURL(blob);
+                };
+
+                btnRecord.onclick = () => {
+                    if (mediaRecorder.state === 'recording') {
+                        mediaRecorder.stop();
+                        btnRecord.textContent = '开始录音';
+                        document.title = '录音测试'
+                    } else {
+                        mediaRecorder.start();
+                        btnRecord.textContent = '停止录音';
+                        document.title = '录音中...'
+                    }
+                    console.log("录音器状态：", mediaRecorder.state);
+                };
+            })
+            .catch(error => {
+                alert('授权失败 - ' + error);
+            });
+    } else {
+        alert('浏览器不支持 getUserMedia')
+    }
+</script>
+</body>
+</html>

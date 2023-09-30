@@ -3,42 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WebRunner - Test</title>
+    <title>WebRunner</title>
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 <div id="app" class="page">
+    <span class="label-section">系统信息</span>
     <span class="label-key">UserAgent</span>
     <span class="label-value">{{userAgent}}</span>
     <div class="deep-line"></div>
-    <span class="label-key">浏览器对话框</span>
+    <span class="label-section">浏览器对话框</span>
     <button class="button" @click="onBtnShowAlertClick">Alert 对话框</button>
     <button class="button" @click="onBtnShowConfirmClick">Confirm 对话框</button>
     <button class="button" @click="onBtnShowPromptClick">Prompt 对话框</button>
     <div class="deep-line"></div>
-    <span class="label-key">下载测试</span>
+    <span class="label-section">下载测试</span>
     <a class="button" download="a.png" href="img/zhiyin.png">下载普通图片</a>
     <a class="button" download="b.png" :href="demoImageBase64">下载 Base64 图片</a>
     <a class="button" download="c.zip" href="files/zhiyin.zip">下载 ZIP 文件</a>
     <div class="deep-line"></div>
-    <span class="label-key">原生功能扩展</span>
+    <span class="label-section">原生功能扩展</span>
     <button class="button" @click="onBtnShowToastClick">原生 Toast</button>
     <button class="button" @click="onBtnOpenShareClick">原生分享</button>
     <div class="deep-line"></div>
+    <span class="label-section">系统页面</span>
+    <button class="button" @click="onBtnOpenAppDetailsSettingsClick">打开应用设置详情页面</button>
+    <div class="deep-line"></div>
+    <span class="label-section">权限管理</span>
     <span class="label-key">权限查询</span>
     <button class="button" @click="onBtnCheckPermissionClick('read-media-images')">权限查询：读取图片媒体</button>
     <button class="button" @click="onBtnCheckPermissionClick('read-media-audio')">权限查询：读取音频媒体</button>
     <button class="button" @click="onBtnCheckPermissionClick('read-media-video')">权限查询：读取视频媒体</button>
     <button class="button" @click="onBtnCheckPermissionClick('camera')">权限查询：照相机</button>
-    <button class="button" @click="onBtnCheckPermissionClick('recorder')">权限查询：录音设备</button>
+    <button class="button" @click="onBtnCheckPermissionClick('record-audio')">权限查询：麦克风</button>
     <button class="button" @click="onBtnCheckPermissionClick('nuclear-weapon')">权限查询：核武器开关</button>
     <span class="label-key">权限申请</span>
     <button class="button" @click="onBtnRequestPermissionClick('read-media-images')">权限申请：读取图片媒体</button>
     <button class="button" @click="onBtnRequestPermissionClick('read-media-audio')">权限申请：读取音频媒体</button>
     <button class="button" @click="onBtnRequestPermissionClick('read-media-video')">权限申请：读取视频媒体</button>
     <button class="button" @click="onBtnRequestPermissionClick('camera')">权限申请：照相机</button>
-    <button class="button" @click="onBtnRequestPermissionClick('recorder')">权限申请：录音设备</button>
+    <button class="button" @click="onBtnRequestPermissionClick('record-audio')">权限申请：麦克风</button>
     <button class="button" @click="onBtnRequestPermissionClick('nuclear-weapon')">权限申请：核武器开关</button>
+    <div class="deep-line"></div>
+    <span class="label-section">输入媒体设备</span>
+    <a class="button" href="recorder.html">录音（需要权限：麦克风）</a>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API/Recording_a_media_element -->
+    <a class="button" href="https://live.mdnplay.dev/en-US/docs/Web/API/MediaStream_Recording_API/Recording_a_media_element/_sample_.Example_of_recording_a_media_element.html?id=Example_of_recording_a_media_element&amp;url=%2Fen-US%2Fdocs%2FWeb%2FAPI%2FMediaStream_Recording_API%2FRecording_a_media_element">录像 - 外部链接（需要权限：照相机+麦克风）</a>
+    <!-- https://github.com/dragonir/h5-scan-qrcode -->
+    <a class="button" href="https://dragonir.github.io/h5-scan-qrcode/">二维码扫描 - 外部链接（需要权限：照相机）</a>
+    <div class="deep-line"></div>
+    <span class="label-section">文件表单</span>
+    <span class="label-key">选择图片</span>
+    <input type="file" accept="image/*">
+    <span class="label-key">照相机拍照</span>
+    <input type="file" accept="image/*" capture="environment">
+    <span class="label-key">选择音频</span>
+    <input type="file" accept="audio/*">
+    <span class="label-key">选择视频</span>
+    <input type="file" accept="video/*">
+    <span class="label-key">选择文件</span>
+    <input type="file" accept="*/*">
+    <span class="label-key">多选图片</span>
+    <input type="file" accept="image/*" multiple>
+    <span class="label-key">多选文件</span>
+    <input type="file" accept="*/*" multiple>
 </div>
 <script src="js/jsbridge-android.js"></script>
 <script src="js/web-runner.js"></script>
