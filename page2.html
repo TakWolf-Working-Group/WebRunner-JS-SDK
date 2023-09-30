@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>页面关闭提示</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="page">
+    <input value="abcde">
+    <button class="button" onclick="window.close();">关闭页面</button>
+</div>
+<script>
+    // https://developer.mozilla.org/zh-CN/docs/Web/API/Window/beforeunload_event
+
+    window.addEventListener('beforeunload', (event) => {
+        // Cancel the event as stated by the standard.
+        event.preventDefault();
+        // Chrome requires returnValue to be set.
+        event.returnValue = '';
+    });
+</script>
+</body>
+</html>

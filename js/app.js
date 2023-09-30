@@ -12,10 +12,20 @@ createApp({
             alert('这是 Alert 对话框')
         },
         onBtnShowConfirmClick() {
-            confirm('这是 Confirm 对话框 ')
+            let value = confirm('这是 Confirm 对话框 ')
+            if (window.webRunner) {
+                webRunner.showToast(value)
+            } else {
+                console.log('confirm: ', value)
+            }
         },
         onBtnShowPromptClick() {
-            prompt('这是 Prompt 对话框，请输入：', '这是默认值')
+            let value = prompt('这是 Prompt 对话框，请输入：', '这是默认值')
+            if (window.webRunner) {
+                webRunner.showToast(value)
+            } else {
+                console.log('prompt: ', value)
+            }
         },
         onBtnShowToastClick() {
             let message = '这是 Toast 消息'
