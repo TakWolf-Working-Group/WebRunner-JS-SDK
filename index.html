@@ -18,7 +18,7 @@
     <button class="button" @click="onBtnShowPromptClick">Prompt 对话框</button>
     <a class="button" href="page2.html">页面关闭提示</a>
     <div class="deep-line"></div>
-    <span class="label-section">下载测试</span>
+    <span class="label-section">下载测试（需要权限：写入媒体）</span>
     <a class="button" download="a.png" href="img/zhiyin.png">下载普通图片</a>
     <a class="button" download="b.png" :href="demoImageBase64">下载 Base64 图片</a>
     <a class="button" download="c.zip" href="files/zhiyin.zip">下载 ZIP 文件</a>
@@ -33,6 +33,7 @@
     <button class="button" @click="onBtnCheckPermissionClick('read-media-images')">权限查询：读取图片媒体</button>
     <button class="button" @click="onBtnCheckPermissionClick('read-media-audio')">权限查询：读取音频媒体</button>
     <button class="button" @click="onBtnCheckPermissionClick('read-media-video')">权限查询：读取视频媒体</button>
+    <button class="button" @click="onBtnCheckPermissionClick('write-media')">权限查询：写入媒体</button>
     <button class="button" @click="onBtnCheckPermissionClick('camera')">权限查询：照相机</button>
     <button class="button" @click="onBtnCheckPermissionClick('record-audio')">权限查询：麦克风</button>
     <button class="button" @click="onBtnCheckPermissionClick('nuclear-weapon')">权限查询：核武器开关</button>
@@ -40,6 +41,7 @@
     <button class="button" @click="onBtnRequestPermissionClick('read-media-images')">权限申请：读取图片媒体</button>
     <button class="button" @click="onBtnRequestPermissionClick('read-media-audio')">权限申请：读取音频媒体</button>
     <button class="button" @click="onBtnRequestPermissionClick('read-media-video')">权限申请：读取视频媒体</button>
+    <button class="button" @click="onBtnRequestPermissionClick('write-media')">权限申请：写入媒体</button>
     <button class="button" @click="onBtnRequestPermissionClick('camera')">权限申请：照相机</button>
     <button class="button" @click="onBtnRequestPermissionClick('record-audio')">权限申请：麦克风</button>
     <button class="button" @click="onBtnRequestPermissionClick('nuclear-weapon')">权限申请：核武器开关</button>
